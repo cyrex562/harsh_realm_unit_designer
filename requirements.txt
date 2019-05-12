@@ -1,1 +1,6 @@
 flask
+pymongo
+mongoengine
+flask-mongoengine
+flask-restplus
+pydantic
