@@ -8,7 +8,7 @@ from mongoengine import UUIDField, Document, BooleanField, ListField, IntField, 
 class Unit(Document):
     uuid = UUIDField(binary=False)
     # hq unit
-    hq_unit_uuid = UUIDField(binary=False)
+    hq_unit = StringField()
     # is hq
     is_hq = BooleanField(default=False)
     # unit role
