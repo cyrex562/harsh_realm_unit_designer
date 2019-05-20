@@ -4,3 +4,6 @@ mongoengine
 flask-mongoengine
 flask-restplus
 pydantic
+fastapi
+uvicorn
+ujson
