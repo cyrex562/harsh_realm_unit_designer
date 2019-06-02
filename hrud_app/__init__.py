@@ -1,8 +1,19 @@
 import os
-from flask import Flask, redirect, url_for, render_template
+
+from flask import Flask, render_template
+from flask_admin import Admin
 
 
 def create_app(test_config=None, config_file_name="./settings.py"):
+    """
+
+    Args:
+        test_config:
+        config_file_name:
+
+    Returns:
+
+    """
     # create and configure the app
     app = Flask(__name__, instance_relative_config=False)
 
@@ -17,18 +28,17 @@ def create_app(test_config=None, config_file_name="./settings.py"):
     except OSError:
         pass
 
+    # flask-admin
+    admin = Admin(app, name="harsh-realm", template_mode='bootstrap4')
+    # add admin views here
+
+    # db app
     from hrud_app.model import db
     db.init_app(app)
 
-    from hrud_app.views import api
-    api.init_app(app)
-
+    # views blueprints
     from hrud_app.views import pages
     app.register_blueprint(pages)
-
-    @app.route('/', defaults={'path': ''})
-    def index():
-        return render_template("index.html")
 
     return app
 

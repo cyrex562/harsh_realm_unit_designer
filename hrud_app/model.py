@@ -4,9 +4,9 @@ model.py
 Models specification for the app.
 
 """
-from flask_mongoengine import MongoEngine
 from mongoengine import UUIDField, Document, BooleanField, ListField, IntField, \
     StringField, ReferenceField
+from flask_mongoengine import MongoEngine
 
 db = MongoEngine()
 
@@ -31,7 +31,6 @@ class Unit(Document):
     """
     Unit specification
     """
-    uuid = UUIDField(binary=False)
     # hq unit
     hq_unit = ReferenceField('self')
     # is hq
